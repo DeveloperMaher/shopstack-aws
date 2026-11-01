@@ -1,0 +1,25 @@
+{
+  "name": "shopstack",
+  "version": "1.0.0",
+  "description": "Mini e-commerce API on AWS Elastic Beanstalk with DynamoDB, S3 (presigned URLs), and SNS.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "engines": {
+    "node": ">=20.0.0 <21.0.0"
+  },
+  "license": "MIT",
+  "author": "Developer_Maher",
+  "dependencies": {
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "@aws-sdk/client-dynamodb": "^3.637.0",
+    "@aws-sdk/lib-dynamodb": "^3.637.0",
+    "@aws-sdk/client-s3": "^3.637.0",
+    "@aws-sdk/s3-request-presigner": "^3.637.0",
+    "@aws-sdk/client-sns": "^3.637.0",
+    "@aws-sdk/client-ssm": "^3.637.0"
+  }
+}

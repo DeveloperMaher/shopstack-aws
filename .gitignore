@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Local environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Elastic Beanstalk deployment artifacts
+*.zip
+.elasticbeanstalk/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local test files
+tmp/
