@@ -12,11 +12,6 @@ router.post('/', async (req, res) => {
     const { productId, quantity, customerEmail } = req.body;
     const orderId = crypto.randomUUID();
 
-    // We use a DynamoDB Transaction to ensure we don't sell out of stock!
-    // 1. Create the order
-    // 2. Decrement the product's stock (condition: stock must be >= quantity)
-    
-    // Note: For this to work, the product must have a 'stock' attribute.
     const transactCommand = new TransactWriteCommand({
       TransactItems: [
         {

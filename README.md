@@ -109,7 +109,7 @@ sequenceDiagram
 
 | Service | Purpose | Docs |
 |---|---|---|
-| **Elastic Beanstalk** | PaaS for automated EC2 provisioning and Node.js deployment | [docs](https://docs.aws.amazon.com/elasticbeanstalk/) |
+| **Elastic Beanstalk** | PaaS for automated EC2 provisioning and Node.js deployment | [docs](https://docs.aws.amazon.com/elastic-beanstalk/) |
 | **Amazon EC2** | `t3.micro` single instance running the Node.js app | [docs](https://docs.aws.amazon.com/ec2/) |
 | **Amazon DynamoDB** | On-demand NoSQL database for Products and Orders | [docs](https://docs.aws.amazon.com/dynamodb/) |
 | **Amazon S3** | Private bucket for product images (accessed via Presigned URLs) | [docs](https://docs.aws.amazon.com/s3/) |
@@ -263,10 +263,6 @@ Building this end-to-end surfaced several real production-grade issues. Each tau
 ### 4. IAM Actions for DynamoDB Transactions
 **Symptom:** IAM Policy validation failed for `dynamodb:TransactWriteItems`.
 **Lesson:** `TransactWriteItems` is not an IAM action. IAM relies on the underlying item operations (like `PutItem`, `UpdateItem`, `ConditionCheckItem`). The SDK maps the transaction to these specific permissions.
-
-### 5. PowerShell CLI Quirks
-**Symptom:** `curl` failed with "URL rejected: Port number was not a decimal number".
-**Lesson:** PowerShell aliases `curl` to `Invoke-WebRequest`. Using `curl.exe` with single-quotes (`'`) breaks JSON parsing. Use native PowerShell `Invoke-RestMethod` with `ConvertTo-Json` for a cleaner experience.
 
 ---
 

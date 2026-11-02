@@ -12,7 +12,6 @@ async function generateUploadUrl(key, contentType) {
     ContentType: contentType,
   });
   
-  // URL expires in 5 minutes (300 seconds)
   return await getSignedUrl(s3Client, command, { expiresIn: 300 });
 }
 

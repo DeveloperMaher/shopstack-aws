@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 // POST /api/products - Create a new product
 router.post('/', async (req, res) => {
   try {
-    const { name, price, description, stock } = req.body; // Add 'stock' here
+    const { name, price, description, stock } = req.body; 
     const product = {
       id: crypto.randomUUID(),
       name,
