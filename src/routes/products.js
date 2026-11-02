@@ -20,13 +20,14 @@ router.get('/', async (req, res) => {
 // POST /api/products - Create a new product
 router.post('/', async (req, res) => {
   try {
-    const { name, price, description } = req.body;
+    const { name, price, description, stock } = req.body; // Add 'stock' here
     const product = {
       id: crypto.randomUUID(),
       name,
       price,
       description,
-      imageKey: null // Will be updated later
+      stock: stock || 0, 
+      imageKey: null 
     };
 
     await docClient.send(new PutCommand({
